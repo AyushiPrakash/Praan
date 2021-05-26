@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useRemoteCsv } from "./utils/hooks";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const deviceA = useRemoteCsv("/assets/datasets/device-a.csv");
+  const deviceB = useRemoteCsv("/assets/datasets/device-b.csv");
+  const deviceC = useRemoteCsv("/assets/datasets/device-c.csv");
+
+
+  return <div className="App">{JSON.stringify(deviceA)}</div>;
 }
 
 export default App;
