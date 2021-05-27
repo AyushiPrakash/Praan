@@ -16,9 +16,9 @@ const Pm1 = ({ deviceA, deviceB, deviceC }) => {
     deviceA.value.forEach((readingA, index) => {
       data.push({
         t: readingA.t,
-        a: readingA.pm1,
-        b: deviceB.value[index].pm1,
-        c: deviceC.value[index].pm1,
+        a: readingA.p1,
+        b: deviceB.value[index].p1,
+        c: deviceC.value[index].p1,
       });
     });
   }
@@ -35,19 +35,20 @@ const Pm1 = ({ deviceA, deviceB, deviceC }) => {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="t" />
+        <CartesianGrid strokeDasharray="3 3" strokeWidth="0.2"  />
+        <XAxis
+          dataKey="t"
+          name="Time"
+          type="number"
+          domain={["auto", "auto"]}
+          scale="time"
+        />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line
-          type="monotone"
-          dataKey="a"
-          stroke="#8884d8"
-          //   activeDot={{ r: 8 }}
-        />
-        <Line type="monotone" dataKey="b" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="c" stroke="#f13a9d" />
+        <Line strokeWidth="1.5px" dot={false} type="monotone" dataKey="a" stroke="#8884d8" />
+        <Line strokeWidth="1.5px" dot={false} type="monotone" dataKey="b" stroke="#04bbd3" />
+        <Line strokeWidth="1.5px" dot={false} type="monotone" dataKey="c" stroke="#f13a9d" />
       </LineChart>
     </>
   );

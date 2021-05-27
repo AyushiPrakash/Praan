@@ -10,15 +10,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Pm10 = ({ deviceA, deviceB, deviceC }) => {
+const Pm25 = ({ deviceA, deviceB, deviceC }) => {
   const data = [];
   if (!deviceA.loading && !deviceB.loading && !deviceC.loading) {
     deviceA.value.forEach((readingA, index) => {
       data.push({
         t: readingA.t,
-        a: readingA.p10,
-        b: deviceB.value[index].p10,
-        c: deviceC.value[index].p10,
+        a: readingA.p25,
+        b: deviceB.value[index].p25,
+        c: deviceC.value[index].p25,
       });
     });
   }
@@ -72,4 +72,4 @@ const Pm10 = ({ deviceA, deviceB, deviceC }) => {
   );
 };
 
-export default Pm10;
+export default Pm25;

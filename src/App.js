@@ -4,9 +4,15 @@ import { ThemeProvider } from "styled-components";
 import Dashboard from "./components/Dashboard";
 
 function App() {
-  const deviceA = useRemoteCsv("/assets/datasets/device-a.csv");
-  const deviceB = useRemoteCsv("/assets/datasets/device-b.csv");
-  const deviceC = useRemoteCsv("/assets/datasets/device-c.csv");
+  const deviceA = useRemoteCsv(
+    `${window.location.origin}/assets/datasets/device-a.csv`
+  );
+  const deviceB = useRemoteCsv(
+    `${window.location.origin}/assets/datasets/device-b.csv`
+  );
+  const deviceC = useRemoteCsv(
+    `${window.location.origin}/assets/datasets/device-c.csv`
+  );
 
   return (
     <ThemeProvider
@@ -19,7 +25,7 @@ function App() {
       }}
     >
       <GlobalStyles />
-      <Dashboard  data={{deviceA,deviceB,deviceC}} />
+      <Dashboard data={{ deviceA, deviceB, deviceC }} />
     </ThemeProvider>
   );
 }
