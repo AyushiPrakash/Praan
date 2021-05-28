@@ -8,6 +8,7 @@ React, styled-components, recharts, heroku, papaparse & react-select
 ## Challenges faced
 1. Using Recharts instead of a canvas based chart library. Recharts uses svg and this why the charts start lagging when handling large amount of data.
 2. Coming from a web dev background, this was my first time working with a raw dataset and it was a challenging and fun learning experience.
+3. Since the data was not realtime, I assumed the current datetime to be the max timestamp available in the dataset.
 
 ## How to deploy
 1. Install Heroku CLI in your system.
