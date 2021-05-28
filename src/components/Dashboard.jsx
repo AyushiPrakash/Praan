@@ -132,7 +132,7 @@ const Dashboard = ({ data }) => {
       <div className="header">
         <Logo className="logo" style={{ fill: theme.textPrimary }} />
         <div style={{ color: theme.textPrimary }}>
-          {assumedCurrentDate.format("HH:mm:ss, DD/MM/YY")}
+          {assumedCurrentDate.format("HH:mm:ss, Do MMM YYYY")}
         </div>
         <div className="timeSelect">
           <Select
