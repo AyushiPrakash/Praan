@@ -30,7 +30,7 @@ const Pm1 = ({ deviceA, deviceB, deviceC }) => {
   }
 
   return (
-    <ResponsiveContainer width="100%" aspect={1.77}>
+    <ResponsiveContainer width="100%" aspect={16 / 9}>
       <LineChart
         data={data}
         margin={{
@@ -56,7 +56,11 @@ const Pm1 = ({ deviceA, deviceB, deviceC }) => {
         />
 
         <YAxis style={{ fontSize: "12px" }} />
-        <Tooltip labelFormatter={(epoch)=>(moment(epoch * 1000).format("H:mm, MMM Do, YY"))} />
+        <Tooltip
+          labelFormatter={(epoch) =>
+            moment(epoch * 1000).format("H:mm, MMM Do, YY")
+          }
+        />
         <Legend align="right" verticalAlign="top" height={36} />
         <Line
           name="A"
@@ -85,6 +89,6 @@ const Pm1 = ({ deviceA, deviceB, deviceC }) => {
       </LineChart>
     </ResponsiveContainer>
   );
-};;;;;;;
+};
 
 export default Pm1;

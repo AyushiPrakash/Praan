@@ -39,32 +39,22 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## How to deploy
+1. Install Heroku CLI in your system.
+2. Go to [https://www.heroku.com/](https://www.heroku.com/) and register. After completing your registration go to the heroku dashboard and create a new app named “myherokuapp” or name of your choice. 
+3. Run the following command on your terminal: `heroku login`. It will prompt you to enter any key to continue, and will open a new tab in your browser asking you to log in to your Heroku account. After you enter the required credentials and login on to the site, it is going to show in your terminal “Logged in”.
+4. Initialize a Git repository by running the following command : `git init`. Make sure you be at the top level of your project directory. 
+5. Now, add the Heroku remote by running the following command: `heroku git:remote -a myherokuapp`.
+6. **Now the most important part :** Heroku provides the buildpack for Python, Node.js-based app, but it doesn’t provide buildpack for React apps. So we have to add an extra buildpack in the settings section of your Heroku app. 
+```
+https://buildpack-registry.s3.amazonaws.com/buildpacks/mars/create-react-app.tgz
+```
+7. Now run the following commands to push your project to the repository:
+```
+git add.
+git commit -m "First Commit"
+git push heroku master
+```
+8. Your React app is successfully pushed to the Heroku repository.
+9. Finally, the web app will be deployed on [https://myherokuapp.herokuapp.com/](https://myherokuapp.herokuapp.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

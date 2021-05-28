@@ -13,24 +13,23 @@ import {
 import { useTheme } from "styled-components";
 import moment from "moment";
 
-
 const Pm25 = ({ deviceA, deviceB, deviceC }) => {
   const theme = useTheme();
-  
+
   // Forming a custom data array containing pm2.5 values of deviceA, deviceB, and deviceC with common timestamps
   const data = [];
   if (!deviceA.loading && !deviceB.loading && !deviceC.loading) {
     deviceA.value.forEach((readingA, index) => {
       data.push({
         t: readingA.t,
-        "deviceA": readingA.p25,
-        "deviceB": deviceB.value[index].p25,
-        "deviceC": deviceC.value[index].p25,
+        deviceA: readingA.p25,
+        deviceB: deviceB.value[index].p25,
+        deviceC: deviceC.value[index].p25,
       });
     });
   }
   return (
-    <ResponsiveContainer width="100%" aspect={1.77}>
+    <ResponsiveContainer width="100%" aspect={16 / 9}>
       <LineChart
         data={data}
         margin={{
@@ -55,7 +54,11 @@ const Pm25 = ({ deviceA, deviceB, deviceC }) => {
           tickFormatter={(epoch) => moment(epoch * 1000).format("H:mm, MMM Do")}
         />
         <YAxis style={{ fontSize: "12px" }} />
-        <Tooltip labelFormatter={(epoch)=>(moment(epoch * 1000).format("H:mm, MMM Do, YY"))} />
+        <Tooltip
+          labelFormatter={(epoch) =>
+            moment(epoch * 1000).format("H:mm, MMM Do, YY")
+          }
+        />
         <Legend align="right" verticalAlign="top" height={36} />
         <Line
           name="A"
